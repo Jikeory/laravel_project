@@ -13,15 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return redirect('admin');
-// });
-//
-// Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'XSS']], function () {
-//     Route::get('/', 'AdminHomeController@index');
-// });
-// Route::get('/', 'AdminHomeController@index');
-Route::group(['middleware' => ['auth', 'XSS']], function () {
-    // Route::get('login', 'Auth\LoginController@login');
+Route::get('/', function () {
+    return redirect('admin');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'XSS']], function () {
+    Route::get('login', 'LoginController@index')->name('login');
     Route::get('/', 'AdminHomeController@index');
 });

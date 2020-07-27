@@ -15,8 +15,6 @@ class XSS
      */
     public function handle($request, Closure $next)
     {
-        $action = $request->getRequestUri();
-        echo $action;die;
         $input = $request->all();
         array_walk_recursive($input, function (&$input) {
             $input = strip_tags($input);
